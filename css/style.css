@@ -80,11 +80,77 @@ body {
     padding: 24px;
 }
 
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .calendar-header {
     font-size: 20px;
     font-weight: 700;
     color: #333;
+}
+
+.calendar-view-toggle {
+    display: flex;
+    gap: 4px;
+    background: #f3f4f6;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.calendar-view-toggle button {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: #6b7280;
+}
+
+.calendar-view-toggle button.active {
+    background: white;
+    color: #2563eb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.week-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 16px;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.week-navigation span {
+    font-weight: 600;
+    color: #374151;
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+}
+
+.nav-btn:hover {
+    background: #f3f4f6;
 }
 
 .calendar-weekdays {
@@ -109,6 +175,11 @@ body {
     gap: 8px;
 }
 
+.calendar-grid.week-view {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
 .calendar-day {
     min-height: 120px;
     border: 1px solid #e5e7eb;
@@ -117,6 +188,42 @@ body {
     cursor: pointer;
     transition: all 0.2s;
     background: white;
+}
+
+.week-view .calendar-day {
+    min-height: auto;
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+}
+
+.week-view .day-info {
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid #e5e7eb;
+    padding-right: 12px;
+}
+
+.week-view .day-number {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.week-view .day-name {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.week-view .shifts-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-content: flex-start;
 }
 
 .calendar-day:hover {
@@ -475,13 +582,56 @@ body {
         min-height: 80px;
         padding: 4px;
     }
+
+    .calendar-grid.week-view {
+        gap: 8px;
+    }
+
+    .week-view .calendar-day {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .week-view .day-info {
+        min-width: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        padding-right: 0;
+        padding-bottom: 8px;
+    }
+
+    .week-view .day-number {
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-right: 8px;
+    }
     
     .shift-item {
         font-size: 10px;
         padding: 2px 4px;
     }
+
+    .week-view .shift-item {
+        font-size: 12px;
+        padding: 6px 8px;
+        flex: 1;
+        min-width: calc(50% - 4px);
+    }
     
     .staff-grid {
         grid-template-columns: 1fr;
+    }
+
+    .calendar-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .week-navigation {
+        flex-wrap: wrap;
+        gap: 8px;
     }
 }

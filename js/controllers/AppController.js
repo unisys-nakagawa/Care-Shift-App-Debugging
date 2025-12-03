@@ -58,10 +58,58 @@ export class AppController {
             this.switchViewMode('coordinator');
         });
 
+        // 月表示/週表示切り替えボタン
+        const monthViewBtn = document.getElementById('monthViewBtn');
+        const weekViewBtn = document.getElementById('weekViewBtn');
+        const weekNavigation = document.getElementById('weekNavigation');
+
+        monthViewBtn.addEventListener('click', () => {
+            this.calendarView.setViewMode('month');
+            monthViewBtn.classList.add('active');
+            weekViewBtn.classList.remove('active');
+            weekNavigation.style.display = 'none';
+            this.updateView();
+        });
+
+        weekViewBtn.addEventListener('click', () => {
+            this.calendarView.setViewMode('week');
+            weekViewBtn.classList.add('active');
+            monthViewBtn.classList.remove('active');
+            weekNavigation.style.display = 'flex';
+            this.updateWeekLabel();
+            this.updateView();
+        });
+
+        // 週の前後移動
+        const prevWeekBtn = document.getElementById('prevWeekBtn');
+        const nextWeekBtn = document.getElementById('nextWeekBtn');
+
+        prevWeekBtn.addEventListener('click', () => {
+            this.calendarView.moveWeek(-1);
+            this.updateWeekLabel();
+            this.updateView();
+        });
+
+        nextWeekBtn.addEventListener('click', () => {
+            this.calendarView.moveWeek(1);
+            this.updateWeekLabel();
+            this.updateView();
+        });
+
         // カレンダーの日付クリック
         this.calendarView.setOnDateClick((date) => {
             this.showShiftDetail(date);
         });
+    }
+
+    /**
+     * 週ラベルを更新
+     */
+    updateWeekLabel() {
+        const weekLabel = document.getElementById('weekLabel');
+        if (weekLabel) {
+            weekLabel.textContent = this.calendarView.getWeekLabel();
+        }
     }
 
     /**

@@ -21,6 +21,7 @@ export class ModalView {
      * @param {Shift[]} shifts - その日のシフト
      * @param {StaffManager} staffManager
      * @param {string} viewMode - 'staff' or 'coordinator'
+     * @param {number} currentStaffId - 現在のスタッフID
      */
     show(date, shifts, staffManager, viewMode = 'staff', currentStaffId = 1) {
         const dateObj = new Date(date + 'T00:00:00');

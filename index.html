@@ -24,8 +24,19 @@
 
         <!-- カレンダー -->
         <div class="calendar-section">
-            <div class="calendar-header">2025年1月</div>
-            <div class="calendar-weekdays">
+            <div class="calendar-controls">
+                <div class="calendar-header" id="calendarHeader">2025年1月</div>
+                <div class="calendar-view-toggle">
+                    <button id="monthViewBtn" class="active">月表示</button>
+                    <button id="weekViewBtn">週表示</button>
+                </div>
+            </div>
+            <div id="weekNavigation" class="week-navigation" style="display: none;">
+                <button id="prevWeekBtn" class="nav-btn">← 前週</button>
+                <span id="weekLabel"></span>
+                <button id="nextWeekBtn" class="nav-btn">次週 →</button>
+            </div>
+            <div class="calendar-weekdays" id="calendarWeekdays">
                 <div class="weekday sunday">日</div>
                 <div class="weekday">月</div>
                 <div class="weekday">火</div>
