@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    background-color: #f5f5f5;
+    padding: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.view-toggle button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-toggle button.active {
+    background: #2563eb;
+    color: white;
+}
+
+.view-toggle button:not(.active) {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.view-toggle button:not(.active):hover {
+    background: #d1d5db;
+}
+
+.header-desc {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* カレンダー */
+.calendar-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
+.calendar-header {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.weekday.sunday { color: #dc2626; }
+.weekday.saturday { color: #2563eb; }
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    min-height: 120px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.calendar-day:hover {
+    background: #f9fafb;
+}
+
+.calendar-day.empty {
+    background: #f5f5f5;
+    cursor: default;
+}
+
+.calendar-day.today {
+    border: 2px solid #2563eb;
+}
+
+.day-number {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.day-number.sunday { color: #dc2626; }
+.day-number.saturday { color: #2563eb; }
+
+.shift-item {
+    font-size: 11px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    border: 1px solid;
+}
+
+.shift-confirmed {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
+}
+
+.shift-pending {
+    background: #fef9c3;
+    color: #854d0e;
+    border-color: #fde047;
+}
+
+.shift-recruiting {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fca5a5;
+}
+
+.shift-available {
+    background: #dbeafe;
+    color: #1e40af;
+    border-color: #93c5fd;
+}
+
+.shift-time {
+    font-weight: 600;
+}
+
+.shift-detail {
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+/* スタッフリスト */
+.staff-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.staff-header {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.staff-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    transition: border-color 0.2s;
+}
+
+.staff-card:hover {
+    border-color: #93c5fd;
+}
+
+.staff-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 8px;
+}
+
+.staff-name {
+    font-weight: 700;
+    color: #333;
+}
+
+.staff-gender {
+    font-size: 12px;
+    background: #f3f4f6;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.staff-experience {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.staff-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.skill-tag {
+    font-size: 12px;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* 凡例 */
+.legend-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.legend-header {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.legend-label {
+    font-size: 14px;
+    color: #374151;
+}
+
+/* モーダル */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #374151;
+}
+
+.modal-shift {
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.modal-shift-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 12px;
+}
+
+.modal-shift-time {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.modal-shift-facility {
+    font-size: 14px;
+    opacity: 0.75;
+    margin-top: 4px;
+}
+
+.modal-shift-status {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal-shift-staff {
+    border-top: 1px solid;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+.modal-staff-name {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.modal-staff-info {
+    font-size: 14px;
+    opacity: 0.75;
+    margin-bottom: 8px;
+}
+
+.modal-requirements {
+    border-top: 1px solid;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+.modal-requirements-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #d1d5db;
+}
+
+.empty-message {
+    text-align: center;
+    color: #6b7280;
+    padding: 32px;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .calendar-grid {
+        gap: 4px;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 4px;
+    }
+    
+    .shift-item {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+    
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
+}

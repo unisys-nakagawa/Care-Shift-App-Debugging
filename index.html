@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シフト管理 - 介護スタッフ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <div class="header">
+            <div class="header-top">
+                <h1>シフト管理</h1>
+                <div class="view-toggle">
+                    <button id="staffViewBtn" class="active">スタッフ視点</button>
+                    <button id="coordinatorViewBtn">調整者視点</button>
+                </div>
+            </div>
+            <div class="header-desc" id="headerDesc">
+                あなたのシフトと勤務可能日を管理できます
+            </div>
+        </div>
+
+        <!-- カレンダー -->
+        <div class="calendar-section">
+            <div class="calendar-header">2025年1月</div>
+            <div class="calendar-weekdays">
+                <div class="weekday sunday">日</div>
+                <div class="weekday">月</div>
+                <div class="weekday">火</div>
+                <div class="weekday">水</div>
+                <div class="weekday">木</div>
+                <div class="weekday">金</div>
+                <div class="weekday saturday">土</div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+
+        <!-- スタッフリスト（調整者視点のみ） -->
+        <div class="staff-section" id="staffSection" style="display: none;">
+            <div class="staff-header">登録スタッフ一覧</div>
+            <div class="staff-grid" id="staffGrid"></div>
+        </div>
+
+        <!-- 凡例 -->
+        <div class="legend-section">
+            <div class="legend-header">凡例</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-box shift-confirmed"></div>
+                    <div class="legend-label">確定</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box shift-pending"></div>
+                    <div class="legend-label">未確定</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box shift-recruiting"></div>
+                    <div class="legend-label">募集中</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box shift-available"></div>
+                    <div class="legend-label">勤務可</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダル -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/models/Staff.js"></script>
+    <script type="module" src="js/models/Shift.js"></script>
+    <script type="module" src="js/views/CalendarView.js"></script>
+    <script type="module" src="js/views/StaffListView.js"></script>
+    <script type="module" src="js/views/ModalView.js"></script>
+    <script type="module" src="js/controllers/AppController.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
