@@ -129,6 +129,5 @@ function checkLiffEnvironment() {
 
 // シフトアプリへのページ遷移
 function goToShiftApp() {
-    // 同じディレクトリ内のShiftApp.htmlに遷移
-    window.location.href = '/shift/ShiftApp.html';
+    window.location.href = '../shift/ShiftApp.html';
 }
