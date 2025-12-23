@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEミニアプリ - ログイン</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>📱 LINEミニアプリ</h1>
+            <p>ログインプロトタイプ</p>
+        </div>
+
+        <div class="loading" id="loading">読み込み中</div>
+        <div class="error" id="error"></div>
+
+        <!-- ログイン前の画面 -->
+        <div id="loginView">
+            <button class="btn btn-login" onclick="login()">LINEでログイン</button>
+            <div class="info-box">
+                <strong>💡 プロトタイプについて</strong>
+                このプロトタイプを動作させるには、LINE Developersコンソールでチャネルを作成し、LIFF IDを設定する必要があります。
+            </div>
+        </div>
+
+        <!-- ログイン後の画面 -->
+        <div id="profileView" style="display: none;">
+            <div class="user-profile">
+                <img id="userPicture" src="" alt="プロフィール画像">
+                <h2 id="userName"></h2>
+                <p id="userStatus"></p>
+            </div>
+
+            <div class="status show">
+                <h3>📊 ユーザー情報</h3>
+                <div class="status-item">
+                    <span>ユーザーID:</span>
+                    <span id="userId"></span>
+                </div>
+                <div class="status-item">
+                    <span>ログイン状態:</span>
+                    <span style="color: #06c755;">✓ ログイン済み</span>
+                </div>
+            </div>
+
+            <button class="btn btn-logout" onclick="logout()">ログアウト</button>
+            
+            <button class="btn btn-primary" onclick="goToShiftApp()" style="background: #2196f3; margin-top: 10px;">
+                📅 シフトアプリを開く
+            </button>
+        </div>
+    </div>
+
+    <!-- LIFF SDK -->
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <!-- アプリケーションスクリプト -->
+    <script src="js/login.js"></script>
+</body>
+</html>
