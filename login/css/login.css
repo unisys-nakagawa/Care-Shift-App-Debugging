@@ -184,18 +184,3 @@ body {
     40% { content: '..'; }
     60%, 100% { content: '...'; }
 }
-
-.info-box {
-    background: #e3f2fd;
-    border-left: 4px solid #2196f3;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-size: 13px;
-    color: #1565c0;
-}
-
-.info-box strong {
-    display: block;
-    margin-bottom: 5px;
-}

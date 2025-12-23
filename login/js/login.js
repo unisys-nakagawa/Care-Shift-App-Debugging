@@ -23,8 +23,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (liff.isLoggedIn()) {
             await displayUserProfile();
         } else {
-            // 自動的にログイン処理を実行
-            liff.login();
+            // 5秒後に自動的にログイン処理を実行
+            setTimeout(() => {
+                liff.login();
+            }, 5000);
         }
     } catch (error) {
         console.error('LIFF初期化エラー:', error);

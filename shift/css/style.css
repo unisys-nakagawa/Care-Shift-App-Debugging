@@ -72,6 +72,30 @@ body {
     font-size: 14px;
 }
 
+/* ユーザー情報 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: #f9fafb;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.user-info img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
 /* カレンダー */
 .calendar-section {
     background: white;

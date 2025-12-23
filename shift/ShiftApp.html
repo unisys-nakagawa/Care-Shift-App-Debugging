@@ -12,11 +12,20 @@
         <div class="header">
             <div class="header-top">
                 <h1>シフト管理</h1>
+                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                    <div class="user-info" id="userInfo" style="display: none;">
+                        <img id="userAvatar" src="" alt="プロフィール">
+                        <span id="userName"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-desc" id="headerDesc">
                 <div class="view-toggle">
                     <button id="staffViewBtn" class="active">スタッフ視点</button>
                     <button id="coordinatorViewBtn">調整者視点</button>
                 </div>
             </div>
+            <br/>
             <div class="header-desc" id="headerDesc">
                 あなたのシフトと勤務可能日を管理できます
             </div>
