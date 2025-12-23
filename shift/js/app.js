@@ -6,7 +6,8 @@ let userProfile = null;
 /**
  * アプリケーションのエントリーポイント
  */
-stener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log("app.js loaded");
     try {
         // LIFFの初期化
         await liff.init({ liffId: LIFF_ID });
@@ -14,7 +15,7 @@ stener('DOMContentLoaded', async () => {
         // ログイン状態を確認
         if (!liff.isLoggedIn()) {
             // 未ログインの場合はログインページへリダイレクト
-            window.location.href = 'login.html';
+            window.location.href = '../login/index.html';
             return;
         }
         
